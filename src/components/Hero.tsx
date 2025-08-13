@@ -20,15 +20,15 @@ export const Hero: React.FC = () => {
           </div>
           <div className="flex w-full items-center gap-2.5 text-base text-[#555558] font-normal leading-loose justify-center mt-5 max-md:max-w-full">
             <p className="text-[#555558] self-stretch flex-1 shrink basis-[0%] my-auto max-md:max-w-full">
-              Работайте с лучшими моделями GPT‑5, Gemini и Claude без VPN и проблем с оплатой
+              Работайте с лучшими моделями без VPN и проблем с оплатой
             </p>
           </div>
         </div>
         <div className="items-center self-center flex gap-8 text-base font-semibold leading-loose mt-8">
-          <Button>
+          <Button onClick={() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })}>
             Получить доступ
           </Button>
-          <Button variant="secondary">
+          <Button variant="secondary" onClick={() => document.getElementById('models')?.scrollIntoView({ behavior: 'smooth' })}>
             Доступные модели
           </Button>
         </div>

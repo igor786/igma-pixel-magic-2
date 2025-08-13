@@ -6,7 +6,7 @@ import { Models } from '@/components/Models';
 import { Opportunities } from '@/components/Opportunities';
 import { HowItWorks } from '@/components/HowItWorks';
 import { Customers } from '@/components/Customers';
-import { ContactForm } from '@/components/ContactForm';
+import { ContactFormNew } from '@/components/ContactFormNew';
 import { FAQ } from '@/components/FAQ';
 import { Footer } from '@/components/Footer';
 
@@ -20,18 +20,18 @@ const Index = () => {
       
       <main className="w-full max-md:max-w-full">
         <div className="w-full max-md:max-w-full">
-          <section className="items-center flex w-full flex-col gap-24 bg-white px-0 py-24 rounded-[0_0_0_0] max-md:max-w-full">
+          <section id="about" className="items-center flex w-full flex-col gap-24 bg-white px-0 py-24 rounded-[0_0_0_0] max-md:max-w-full">
             <About />
-            <Models />
+            <Models id="models" />
             <div className="flex min-h-px w-[1308px] max-w-full bg-[#E6E9F2] mt-24 max-md:mt-10" />
-            <Opportunities />
+            <Opportunities id="opportunities" />
             <HowItWorks />
           </section>
           
           <section className="items-center flex w-full flex-col overflow-hidden gap-24 bg-[#F5F7FC] px-0 py-24 max-md:max-w-full">
             <Customers />
             <div className="flex min-h-px w-[1308px] max-w-full bg-[#E6E9F2] mt-24 max-md:mt-10" />
-            <ContactForm />
+            <ContactFormNew />
           </section>
           
           <section className="items-center flex w-full flex-col justify-center gap-24 bg-white px-0 py-24 rounded-[0_0_0_0] max-md:max-w-full">

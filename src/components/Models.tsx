@@ -1,8 +1,12 @@
 import React from 'react';
 
-export const Models: React.FC = () => {
+interface ModelsProps {
+  id?: string;
+}
+
+export const Models: React.FC<ModelsProps> = ({ id }) => {
   return (
-    <section className="w-[1308px] max-w-full gap-12 mt-24 max-md:mt-10">
+    <section id={id} className="w-[1308px] max-w-full gap-12 mt-24 max-md:mt-10">
       <h2 className="text-[#333338] text-center text-[32px] font-semibold leading-none max-md:max-w-full">
         Доступные модели
       </h2>

@@ -12,16 +12,25 @@ export const Header: React.FC = () => {
         />
         <nav className="items-center self-stretch flex min-w-60 gap-6 my-auto">
           <div className="items-center self-stretch flex overflow-hidden my-auto rounded-lg">
-            <span className="text-[#333338] self-stretch my-auto cursor-pointer hover:text-[#3761E9] transition-colors">
+            <span 
+              className="text-[#333338] self-stretch my-auto cursor-pointer hover:text-[#3761E9] transition-colors"
+              onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
+            >
               Что это
             </span>
           </div>
           <div className="items-center self-stretch flex overflow-hidden whitespace-nowrap my-auto rounded-lg">
-            <span className="text-[#333338] self-stretch my-auto cursor-pointer hover:text-[#3761E9] transition-colors">
+            <span 
+              className="text-[#333338] self-stretch my-auto cursor-pointer hover:text-[#3761E9] transition-colors"
+              onClick={() => document.getElementById('opportunities')?.scrollIntoView({ behavior: 'smooth' })}
+            >
               Возможности
             </span>
           </div>
-          <Button className="text-[13px] px-3 py-1.5">
+          <Button 
+            className="text-[13px] px-3 py-1.5"
+            onClick={() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })}
+          >
             Получить доступ
           </Button>
         </nav>
