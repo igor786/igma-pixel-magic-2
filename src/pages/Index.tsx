@@ -1,12 +1,46 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import React from 'react';
+import { Header } from '@/components/Header';
+import { Hero } from '@/components/Hero';
+import { About } from '@/components/About';
+import { Models } from '@/components/Models';
+import { Opportunities } from '@/components/Opportunities';
+import { HowItWorks } from '@/components/HowItWorks';
+import { Customers } from '@/components/Customers';
+import { ContactForm } from '@/components/ContactForm';
+import { FAQ } from '@/components/FAQ';
+import { Footer } from '@/components/Footer';
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+    <div className="overflow-hidden bg-white">
+      <div className="w-full bg-[#F5F7FC] max-md:max-w-full">
+        <Header />
+        <Hero />
       </div>
+      
+      <main className="w-full max-md:max-w-full">
+        <div className="w-full max-md:max-w-full">
+          <section className="items-center flex w-full flex-col gap-24 bg-white px-0 py-24 rounded-[0_0_0_0] max-md:max-w-full">
+            <About />
+            <Models />
+            <div className="flex min-h-px w-[1308px] max-w-full bg-[#E6E9F2] mt-24 max-md:mt-10" />
+            <Opportunities />
+            <HowItWorks />
+          </section>
+          
+          <section className="items-center flex w-full flex-col overflow-hidden gap-24 bg-[#F5F7FC] px-0 py-24 max-md:max-w-full">
+            <Customers />
+            <div className="flex min-h-px w-[1308px] max-w-full bg-[#E6E9F2] mt-24 max-md:mt-10" />
+            <ContactForm />
+          </section>
+          
+          <section className="items-center flex w-full flex-col justify-center gap-24 bg-white px-0 py-24 rounded-[0_0_0_0] max-md:max-w-full">
+            <FAQ />
+          </section>
+        </div>
+      </main>
+      
+      <Footer />
     </div>
   );
 };
