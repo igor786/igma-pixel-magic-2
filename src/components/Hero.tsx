@@ -3,7 +3,7 @@ import { Button } from './ui/button';
 
 export const Hero: React.FC = () => {
   return (
-    <section className="items-center flex w-full flex-col gap-24 mt-14 pb-24 px-5 max-md:max-w-full">
+    <section className="items-center flex w-full flex-col gap-24 mt-14 pb-24 max-md:max-w-full">
       <div className="max-w-full items-stretch flex w-[864px] flex-col gap-8">
         <div className="w-full text-center gap-5 max-md:max-w-full">
           <div className="items-stretch flex w-full flex-col gap-4 max-md:max-w-full">
