@@ -59,7 +59,7 @@ export const ContactFormNew: React.FC = () => {
         </div>
       </div>
       
-      <div className="self-center mt-12 max-md:mt-10">
+      <div className="self-center max-md:mt-10">
         <div className="leadforms-form">
           
           

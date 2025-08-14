@@ -12,7 +12,7 @@ export const HowItWorks: React.FC = () => {
       <h2 className="text-[#333338] text-center text-[28px] leading-none max-md:max-w-full">
         Как это работает
       </h2>
-      <div className="content-start flex-wrap self-center flex gap-[24px_24px] mt-12 max-md:max-w-full max-md:mt-10">
+      <div className="content-start flex-wrap self-center flex gap-[24px_24px] max-md:max-w-full max-md:mt-10">
         {steps.map((step, index) => (
           <div
             key={index}

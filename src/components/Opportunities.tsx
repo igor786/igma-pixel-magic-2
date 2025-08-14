@@ -54,7 +54,7 @@ export const Opportunities: React.FC<OpportunitiesProps> = ({ id }) => {
       <h2 className="text-[#333338] text-center text-[32px] font-semibold leading-none max-md:max-w-full">
         Аспро.ИИ поможет
       </h2>
-      <div className="justify-center content-start flex-wrap self-center flex w-full gap-[24px_24px] mt-12 max-md:mt-10">
+      <div className="justify-center content-start flex-wrap self-center flex w-full gap-[24px_24px] max-md:mt-10">
         {opportunities.map((opportunity, index) => (
           <BenefitCard
             key={index}

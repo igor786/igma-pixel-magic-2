@@ -13,7 +13,7 @@ export const Customers: React.FC = () => {
       <h2 className="text-[#333338] text-2xl font-semibold leading-none max-md:max-w-full">
         Наши первые пользователи
       </h2>
-      <div className="justify-center self-center flex w-full gap-6 flex-wrap mt-12 px-0 py-4 max-md:mt-10">
+      <div className="justify-center self-center flex w-full gap-6 flex-wrap px-0 py-4 max-md:mt-10">
         {stats.map((stat, index) => (
           <div
             key={index}
