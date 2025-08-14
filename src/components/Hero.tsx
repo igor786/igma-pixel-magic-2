@@ -24,7 +24,7 @@ export const Hero: React.FC = () => {
             </p>
           </div>
         </div>
-        <div className="items-center self-center flex gap-8 text-base font-semibold">
+        <div className="items-center self-center flex gap-8 text-base font-semibold mt-2">
           <Button onClick={() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })}>
             Получить доступ
           </Button>
