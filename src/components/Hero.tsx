@@ -11,8 +11,8 @@ export const Hero: React.FC = () => {
               Аспро.ИИ
             </p>
             <div className="flex w-full flex-col items-center text-[56px] text-[#333338] font-semibold leading-[68px] max-md:max-w-full max-md:text-[40px] max-md:leading-[54px]">
-              <h1 className="flex w-[806px] max-w-full gap-3.5 max-md:text-[40px] max-md:leading-[54px]">
-                <span className="text-[#333338] flex-1 shrink basis-[0%] max-md:max-w-full max-md:text-[40px] max-md:leading-[54px]">
+              <h1 className="flex w-[806px] max-w-full gap-3.5 max-md:text-[32px] max-md:leading-[42px]">
+                <span className="text-[#333338] flex-1 shrink basis-[0%] max-md:max-w-full max-md:text-[32px] max-md:leading-[42px]">
                   Простой корпоративный ИИ для вашего бизнеса
                 </span>
               </h1>
