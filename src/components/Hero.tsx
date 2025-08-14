@@ -45,7 +45,7 @@ export const Hero: React.FC = () => {
             alt="No VPN Required"
             className="aspect-[1] object-contain w-10 self-center"
           />
-          <div className="flex w-full flex-col gap-2 mt-6">
+          <div className="flex w-full flex-col gap-2">
             <h3 className="text-[#333338]">
               Используйте без VPN и зарубежной карты
             </h3>
@@ -57,7 +57,7 @@ export const Hero: React.FC = () => {
             alt="Team Collaboration"
             className="aspect-[1] object-contain w-10 self-center"
           />
-          <div className="flex w-full flex-col gap-2 mt-6">
+          <div className="flex w-full flex-col gap-2">
             <h3 className="text-[#333338]">
               Подключайте сотрудников
             </h3>
@@ -69,7 +69,7 @@ export const Hero: React.FC = () => {
             alt="Mobile App"
             className="aspect-[1] object-contain w-10 self-center"
           />
-          <div className="flex w-full flex-col gap-2 mt-6">
+          <div className="flex w-full flex-col gap-2">
             <h3 className="text-[#333338]">
               Работайте через мобильное приложение
             </h3>
