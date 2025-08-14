@@ -9,7 +9,7 @@ export const Footer: React.FC = () => {
         </p>
         <div className="self-stretch flex min-w-60 items-center gap-8 text-[#555558] my-auto">
           <a
-            href="#"
+            href="https://aspro.cloud/about/privacy/"
             className="text-[#555558] self-stretch my-auto hover:text-[#3761E9] transition-colors"
           >
             Политика конфиденциальности
