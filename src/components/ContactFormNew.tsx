@@ -62,12 +62,6 @@ export const ContactFormNew: React.FC = () => {
       <div className="self-center mt-12 max-md:mt-10">
         <div className="leadforms-form">
           <div className="leadforms-form-title">Станьте одним из первых!</div>
-          <input type="hidden" name="manager_id" value="176032" />
-          <input type="hidden" name="pipeline_id" value="27" />
-          <input type="hidden" name="source_id" value="1" />
-          <input type="hidden" name="name" value="Веб-форма " />
-          <input type="hidden" id="leadforms_host" value="https://bi.aspro.ru/" />
-          <textarea name="nspm" style={{ display: 'none !important' }}></textarea>
           
           <div className="leadforms-row">
             <div className="form__input--fragment form__input-group form__input-group--text ">
