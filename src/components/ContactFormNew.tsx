@@ -61,7 +61,7 @@ export const ContactFormNew: React.FC = () => {
       
       <div className="self-center mt-12 max-md:mt-10">
         <div className="leadforms-form">
-          <div className="leadforms-form-title">Станьте одним из первых!</div>
+          
           
           <div className="leadforms-row">
             <div className="form__input--fragment form__input-group form__input-group--text ">
