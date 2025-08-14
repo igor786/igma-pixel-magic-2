@@ -78,11 +78,11 @@ export const FAQ: React.FC = () => {
             onClick={() => toggleFAQ(index)}
           >
             <div className="z-0 w-full max-md:max-w-full">
-              <h3 className="text-[#333338] text-lg font-semibold leading-loose max-md:max-w-full">
+              <h3 className="text-[#333338] text-lg font-semibold max-md:max-w-full">
                 {item.question}
               </h3>
               {openIndex === index && item.answer && (
-                <p className="text-[#555558] text-[15px] font-normal leading-loose mt-4 max-md:max-w-full">
+                <p className="text-[#555558] text-[15px] font-normal mt-4 max-md:max-w-full">
                   {item.answer}
                 </p>
               )}

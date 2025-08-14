@@ -23,7 +23,7 @@ export const HowItWorks: React.FC = () => {
                 {index + 1}
               </span>
             </div>
-            <div className="w-full text-lg text-[#333338] leading-loose gap-6 mt-10">
+            <div className="w-full text-lg text-[#333338] gap-6 mt-10">
               <div className="w-full">
                 <h3 className="text-[#333338]">
                   {step}

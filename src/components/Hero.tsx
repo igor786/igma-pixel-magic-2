@@ -7,7 +7,7 @@ export const Hero: React.FC = () => {
       <div className="max-w-full items-stretch flex w-[864px] flex-col gap-8">
         <div className="w-full text-center gap-5 max-md:max-w-full">
           <div className="items-stretch flex w-full flex-col gap-4 max-md:max-w-full">
-            <p className="text-[#969AA5] text-sm font-normal leading-loose max-md:max-w-full">
+            <p className="text-[#969AA5] text-sm font-normal max-md:max-w-full">
               Аспро.ИИ
             </p>
             <div className="flex w-full flex-col items-center text-[56px] text-[#333338] font-semibold leading-[68px] mt-4 max-md:max-w-full max-md:text-[40px] max-md:leading-[54px]">
@@ -18,13 +18,13 @@ export const Hero: React.FC = () => {
               </h1>
             </div>
           </div>
-          <div className="flex w-full items-center gap-2.5 text-base text-[#555558] font-normal leading-loose justify-center mt-5 max-md:max-w-full">
+          <div className="flex w-full items-center gap-2.5 text-base text-[#555558] font-normal justify-center mt-5 max-md:max-w-full">
             <p className="text-[#555558] self-stretch flex-1 shrink basis-[0%] my-auto max-md:max-w-full">
               Работайте с лучшими моделями без VPN и проблем с оплатой
             </p>
           </div>
         </div>
-        <div className="items-center self-center flex gap-8 text-base font-semibold leading-loose mt-8">
+        <div className="items-center self-center flex gap-8 text-base font-semibold mt-8">
           <Button onClick={() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })}>
             Получить доступ
           </Button>

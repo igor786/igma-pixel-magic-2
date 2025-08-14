@@ -24,7 +24,7 @@ export const BenefitCard: React.FC<BenefitCardProps> = ({
       )}
       <div className="w-full gap-6">
         <div className="w-full">
-          <h3 className="text-[#333338] text-lg font-semibold leading-loose">
+          <h3 className="text-[#333338] text-lg font-semibold">
             {title}
           </h3>
           <p className="text-[#555558] text-sm font-normal leading-[22px] mt-3">

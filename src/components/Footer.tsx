@@ -2,7 +2,7 @@ import React from 'react';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="justify-center items-center flex w-full text-[13px] font-normal text-center leading-loose bg-white px-0 py-16 max-md:max-w-full">
+    <footer className="justify-center items-center flex w-full text-[13px] font-normal text-center bg-white px-0 py-16 max-md:max-w-full">
       <div className="self-stretch flex min-w-60 w-[1308px] items-center gap-[40px_100px] justify-between flex-wrap my-auto">
         <p className="text-[#969AA5] self-stretch my-auto">
           © 2025 Все права защищены

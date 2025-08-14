@@ -45,7 +45,7 @@ export const ContactForm: React.FC = () => {
       </div>
       <div className="items-stretch border self-center flex w-[642px] max-w-full flex-col justify-center bg-white mt-12 p-12 rounded-[20px] border-solid border-[#E6E9F2] max-md:mt-10 max-md:px-5">
         <form onSubmit={handleSubmit(onSubmit)} className="w-full max-md:max-w-full">
-          <div className="w-full text-[13px] text-[#333338] font-normal leading-loose max-md:max-w-full">
+          <div className="w-full text-[13px] text-[#333338] font-normal max-md:max-w-full">
             <div className="w-full max-md:max-w-full">
               <label htmlFor="name" className="text-[#333338] block">
                 Ваше имя
@@ -94,7 +94,7 @@ export const ContactForm: React.FC = () => {
               </div>
             </div>
           </div>
-          <div className="w-full text-base text-white font-semibold whitespace-nowrap leading-loose mt-10 max-md:max-w-full">
+          <div className="w-full text-base text-white font-semibold whitespace-nowrap mt-10 max-md:max-w-full">
             <Button type="submit" className="w-full">
               Присоединиться
             </Button>
