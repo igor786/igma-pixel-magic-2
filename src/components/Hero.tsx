@@ -1,6 +1,5 @@
 import React from 'react';
 import { Button } from './ui/button';
-import heroImage from '../assets/hero-interface.png';
 
 export const Hero: React.FC = () => {
   return (
@@ -35,7 +34,7 @@ export const Hero: React.FC = () => {
         </div>
       </div>
       <img
-        src={heroImage}
+        src="https://api.builder.io/api/v1/image/assets/026994195ab14c0facde9a3ac9f37576/b9b85fc9eb1c1056f551a13ff6942c82d1511710?placeholderIfAbsent=true"
         alt="Aspro.AI Interface Preview"
         className="aspect-[2.13] object-contain w-[1308px] max-w-full"
       />
