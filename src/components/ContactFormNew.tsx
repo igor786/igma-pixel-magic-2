@@ -194,8 +194,8 @@ export const ContactFormNew: React.FC = () => {
               margin: 0;
             }
             .form-checkbox__box {
-              width: 16px;
-              height: 16px;
+              width: 18px;
+              height: 18px;
               border: 1px solid #E6E9F2;
               border-radius: 4px;
               display: flex;
