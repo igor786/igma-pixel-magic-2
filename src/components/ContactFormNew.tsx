@@ -1,6 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 export const ContactFormNew: React.FC = () => {
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitted(true);
+  };
   useEffect(() => {
     // Create and append the script element
     const script = document.createElement('script');
@@ -60,7 +66,21 @@ export const ContactFormNew: React.FC = () => {
       </div>
       
       <div className="self-center">
-        <div className="leadforms-form">
+        {isSubmitted ? (
+          <div className="leadforms-form animate-fade-in">
+            <div className="text-center">
+              <div className="text-green-600 text-lg mb-4">✓</div>
+              <h3 className="text-xl font-semibold text-[#333338] mb-4">
+                Спасибо!
+              </h3>
+              <p className="text-[#555558] leading-relaxed">
+                Спасибо, что присоединились к закрытому тестированию Аспро.ИИ. 
+                Мы направим доступы на вашу почту, когда оно начнется.
+              </p>
+            </div>
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit} className="leadforms-form">
           
           
           <div className="leadforms-row">
@@ -80,14 +100,14 @@ export const ContactFormNew: React.FC = () => {
           
           <div className="leadforms-row">
             <div className="form__input--fragment form__input-group form__input-group--text ">
-              <label className="leadforms-label form__label" htmlFor="leadforms_contact_phone">
-                Телефон
+              <label className="leadforms-label form__label" htmlFor="leadforms_contact_email">
+                Email
               </label>
               <input 
-                type="text" 
+                type="email" 
                 required 
-                id="leadforms_contact_phone" 
-                name="contact_phone" 
+                id="leadforms_contact_email" 
+                name="contact_email" 
                 className="leadforms-input form__control" 
               />
             </div>
@@ -228,11 +248,12 @@ export const ContactFormNew: React.FC = () => {
           `}</style>
           
           <div className="leadforms-row leadforms-row-submit">
-            <button className="leadforms-submit leadforms-btn leadforms-btn-primary">
+            <button type="submit" className="leadforms-submit leadforms-btn leadforms-btn-primary">
               Присоединиться
             </button>
           </div>
-        </div>
+          </form>
+        )}
       </div>
     </section>
   );
