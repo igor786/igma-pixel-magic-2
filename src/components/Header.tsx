@@ -4,7 +4,7 @@ import { Button } from './ui/button';
 export const Header: React.FC = () => {
   return (
     <header className="w-full bg-[#F5F7FC]">
-        <div className="flex w-[1308px] max-w-full items-center gap-[40px_100px] text-sm text-[#333338] font-normal justify-between flex-wrap mx-auto px-5 py-5 max-md:px-5">
+        <div className="flex w-[1308px] max-w-full items-center gap-[40px_100px] text-sm text-[#333338] font-normal justify-between flex-wrap mx-auto px-5 py-5 max-md:px-5 max-md:gap-5">
         <img
           src="https://api.builder.io/api/v1/image/assets/026994195ab14c0facde9a3ac9f37576/8d4711a412525223ddc37e5af3e94068e0466249?placeholderIfAbsent=true"
           alt="Aspro.AI Logo"
