@@ -36,9 +36,9 @@ export const Hero: React.FC = () => {
       <img
         src="https://api.builder.io/api/v1/image/assets/026994195ab14c0facde9a3ac9f37576/b9b85fc9eb1c1056f551a13ff6942c82d1511710?placeholderIfAbsent=true"
         alt="Aspro.AI Interface Preview"
-        className="aspect-[2.13] object-contain w-[1308px] max-w-full mt-24 max-md:mt-10"
+        className="aspect-[2.13] object-contain w-[1308px] max-w-full max-md:mt-10"
       />
-      <div className="justify-center flex w-[1308px] max-w-full gap-6 text-lg text-[#333338] font-semibold text-center leading-7 flex-wrap mt-24 max-md:mt-10">
+      <div className="justify-center flex w-[1308px] max-w-full gap-6 text-lg text-[#333338] font-semibold text-center leading-7 flex-wrap max-md:mt-10">
         <div className="max-w-[280px] items-stretch flex min-w-60 flex-col flex-1 shrink basis-[0%] gap-6 px-6 py-0 max-md:px-5">
           <img
             src="https://api.builder.io/api/v1/image/assets/026994195ab14c0facde9a3ac9f37576/e037124229ace1d0fa1116c92e307a1f29a8a8d6?placeholderIfAbsent=true"

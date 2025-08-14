@@ -8,7 +8,7 @@ export const HowItWorks: React.FC = () => {
   ];
 
   return (
-    <section className="items-stretch flex w-[1308px] max-w-full flex-col font-semibold gap-12 mt-24 max-md:mt-10">
+    <section className="items-stretch flex w-[1308px] max-w-full flex-col font-semibold gap-12 max-md:mt-10">
       <h2 className="text-[#333338] text-center text-[28px] leading-none max-md:max-w-full">
         Как это работает
       </h2>

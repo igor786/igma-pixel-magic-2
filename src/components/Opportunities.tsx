@@ -50,7 +50,7 @@ export const Opportunities: React.FC<OpportunitiesProps> = ({ id }) => {
   ];
 
   return (
-    <section id={id} className="items-stretch flex w-[1308px] max-w-full flex-col gap-12 mt-24 max-md:mt-10">
+    <section id={id} className="items-stretch flex w-[1308px] max-w-full flex-col gap-12 max-md:mt-10">
       <h2 className="text-[#333338] text-center text-[32px] font-semibold leading-none max-md:max-w-full">
         Аспро.ИИ поможет
       </h2>
