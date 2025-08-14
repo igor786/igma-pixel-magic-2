@@ -65,6 +65,9 @@ export const ContactFormNew: React.FC = () => {
           
           <div className="leadforms-row">
             <div className="form__input--fragment form__input-group form__input-group--text ">
+              <label className="leadforms-label form__label" htmlFor="leadforms_contact_name">
+                Ваше имя
+              </label>
               <input 
                 type="text" 
                 required 
@@ -72,14 +75,14 @@ export const ContactFormNew: React.FC = () => {
                 name="contact_name" 
                 className="leadforms-input form__control" 
               />
-              <label className="leadforms-label form__label" htmlFor="leadforms_contact_name">
-                Ваше имя
-              </label>
             </div>
           </div>
           
           <div className="leadforms-row">
             <div className="form__input--fragment form__input-group form__input-group--text ">
+              <label className="leadforms-label form__label" htmlFor="leadforms_contact_phone">
+                Телефон
+              </label>
               <input 
                 type="text" 
                 required 
@@ -87,9 +90,6 @@ export const ContactFormNew: React.FC = () => {
                 name="contact_phone" 
                 className="leadforms-input form__control" 
               />
-              <label className="leadforms-label form__label" htmlFor="leadforms_contact_phone">
-                Телефон
-              </label>
             </div>
           </div>
           
