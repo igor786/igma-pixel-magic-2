@@ -43,7 +43,7 @@ export const Opportunities: React.FC<OpportunitiesProps> = ({ id }) => {
       icon: 'https://api.builder.io/api/v1/image/assets/026994195ab14c0facde9a3ac9f37576/ef66464a91887c92663eb2f5f116662585b12cfb?placeholderIfAbsent=true'
     },
     {
-      title: 'Генерировать идеи',
+      title: 'Готовые сценарии',
       description: 'Выйдите из тупика — ИИ поможет придумать новые варианты привлечения клиентов или найти решение любой другой проблемы.',
       icon: 'https://api.builder.io/api/v1/image/assets/026994195ab14c0facde9a3ac9f37576/dabf222dc03ef7bb13932fb4935f5e9c96adab74?placeholderIfAbsent=true'
     }
