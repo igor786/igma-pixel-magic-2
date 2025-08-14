@@ -102,9 +102,4 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground;
   }
-  }
 }
-
-.form-checkbox__input {
-  width: 18px;
-  height: 18px;
