@@ -69,10 +69,12 @@ export const ContactFormNew: React.FC = () => {
         {isSubmitted ? (
           <div className="leadforms-form animate-fade-in">
             <div className="text-center">
-              <div className="text-green-600 text-lg mb-4">✓</div>
-              <h3 className="text-xl font-semibold text-[#333338] mb-4">
-                Спасибо!
-              </h3>
+              <div className="flex items-center justify-center gap-2 mb-4">
+                <div className="text-green-600 text-lg">✓</div>
+                <h3 className="text-xl font-semibold text-[#333338]">
+                  Благодарим за участие!
+                </h3>
+              </div>
               <p className="text-[#555558] leading-relaxed">
                 Спасибо, что присоединились к закрытому тестированию Аспро.ИИ. 
                 Мы направим доступы на вашу почту, когда оно начнется.
