@@ -28,7 +28,7 @@ export const Header: React.FC = () => {
             </span>
           </div>
           <Button 
-            className="text-[13px] px-3 py-1.5"
+            className="text-[13px] px-3 py-1.5 h-auto"
             onClick={() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })}
           >
             Получить доступ
