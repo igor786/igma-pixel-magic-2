@@ -45,7 +45,7 @@ export const ContactFormNew: React.FC = () => {
   }, []);
 
   return (
-    <section id="contact-form" className="items-stretch flex w-[858px] max-w-full flex-col gap-12 max-md:mt-10">
+    <section id="contact-form" className="items-stretch flex w-[858px] max-w-full flex-col gap-12">
       <div className="w-full text-center gap-5 max-md:max-w-full">
         <div className="flex w-full flex-col text-[32px] text-[#333338] font-semibold leading-none gap-3 max-md:max-w-full">
           <h2 className="text-[#333338] max-md:max-w-full">
@@ -59,7 +59,7 @@ export const ContactFormNew: React.FC = () => {
         </div>
       </div>
       
-      <div className="self-center max-md:mt-10">
+      <div className="self-center">
         <div className="leadforms-form">
           
           

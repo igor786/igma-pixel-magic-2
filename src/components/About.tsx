@@ -34,7 +34,7 @@ export const About: React.FC = () => {
       <h2 className="text-[#333338] text-center text-[32px] font-semibold leading-none max-md:max-w-full">
         Что такое Аспро.ИИ
       </h2>
-      <div className="justify-center content-start flex-wrap self-center flex gap-[24px_24px] max-md:max-w-full max-md:mt-10">
+      <div className="justify-center content-start flex-wrap self-center flex gap-[24px_24px] max-md:max-w-full">
         {benefits.map((benefit, index) => (
           <BenefitCard
             key={index}

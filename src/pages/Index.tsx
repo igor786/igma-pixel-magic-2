@@ -23,14 +23,14 @@ const Index = () => {
           <section id="about" className="items-center flex w-full flex-col gap-24 bg-white px-0 py-24 rounded-[0_0_0_0] max-md:max-w-full">
             <About />
             <Models id="models" />
-            <div className="flex min-h-px w-[1308px] max-w-full bg-[#E6E9F2] max-md:mt-10" />
+            <div className="flex min-h-px w-[1308px] max-w-full bg-[#E6E9F2]" />
             <Opportunities id="opportunities" />
             <HowItWorks />
           </section>
           
           <section className="items-center flex w-full flex-col overflow-hidden gap-24 bg-[#F5F7FC] px-0 py-24 max-md:max-w-full">
             <Customers />
-            <div className="flex min-h-px w-[1308px] max-w-full bg-[#E6E9F2] max-md:mt-10" />
+            <div className="flex min-h-px w-[1308px] max-w-full bg-[#E6E9F2]" />
             <ContactFormNew />
           </section>
           

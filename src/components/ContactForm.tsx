@@ -30,7 +30,7 @@ export const ContactForm: React.FC = () => {
   };
 
   return (
-    <section className="items-stretch flex w-[858px] max-w-full flex-col gap-12 mt-24 max-md:mt-10">
+    <section className="items-stretch flex w-[858px] max-w-full flex-col gap-12 mt-24">
       <div className="w-full text-center gap-5 max-md:max-w-full">
         <div className="flex w-full flex-col text-[32px] text-[#333338] font-semibold leading-none gap-3 max-md:max-w-full">
           <h2 className="text-[#333338] max-md:max-w-full">
@@ -43,7 +43,7 @@ export const ContactForm: React.FC = () => {
           </p>
         </div>
       </div>
-      <div className="items-stretch border self-center flex w-[642px] max-w-full flex-col justify-center bg-white mt-12 p-12 rounded-[20px] border-solid border-[#E6E9F2] max-md:mt-10 max-md:px-5">
+      <div className="items-stretch border self-center flex w-[642px] max-w-full flex-col justify-center bg-white mt-12 p-12 rounded-[20px] border-solid border-[#E6E9F2] max-md:px-5">
         <form onSubmit={handleSubmit(onSubmit)} className="w-full max-md:max-w-full">
           <div className="w-full text-[13px] text-[#333338] font-normal max-md:max-w-full">
             <div className="w-full max-md:max-w-full">

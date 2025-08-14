@@ -68,7 +68,7 @@ export const FAQ: React.FC = () => {
       <h2 className="text-[#333338] text-center text-[28px] font-semibold leading-none max-md:max-w-full">
         Вопросы и ответы
       </h2>
-      <div className="self-center w-full border-0 border-solid border-[#E6E9F2] max-md:mt-10">
+      <div className="self-center w-full border-0 border-solid border-[#E6E9F2]">
         {faqItems.map((item, index) => (
           <div
             key={index}
