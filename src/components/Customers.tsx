@@ -22,7 +22,7 @@ export const Customers: React.FC = () => {
             <div className="text-[#333338] text-[44px] font-semibold leading-none self-center">
               {stat.number}
             </div>
-            <div className="flex w-full flex-col text-[15px] text-[#555558] font-normal leading-[23px] gap-2 mt-4">
+            <div className="flex w-full flex-col text-[15px] text-[#555558] font-normal leading-[23px] gap-2">
               <p className="text-[#555558]">
                 {stat.description}
               </p>
