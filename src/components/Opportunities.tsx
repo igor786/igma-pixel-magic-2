@@ -69,7 +69,7 @@ export const Opportunities: React.FC<OpportunitiesProps> = ({ id }) => {
             <AccordionItem 
               key={index} 
               value={`item-${index}`} 
-              className="group relative overflow-hidden rounded-[24px] border-0 bg-[#F5F7FC] transition-all duration-300 animate-scale-in"
+              className="group relative overflow-hidden rounded-[24px] border-0 bg-white transition-all duration-300 animate-scale-in"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <div className={`absolute inset-0 opacity-5 ${department.gradient}`}></div>
