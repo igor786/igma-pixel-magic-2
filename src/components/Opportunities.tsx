@@ -15,7 +15,7 @@ export const Opportunities: React.FC<OpportunitiesProps> = ({ id }) => {
     {
       name: 'Маркетинга',
       icon: '📊',
-      gradient: 'bg-gradient-to-br from-purple-500 via-indigo-500 to-blue-600',
+      gradient: 'bg-primary',
       benefits: [
         'Ежедневный мониторинг конкурентов и трендов',
         'ИИ-брейншторм: +30% креативных гипотез',
@@ -26,7 +26,7 @@ export const Opportunities: React.FC<OpportunitiesProps> = ({ id }) => {
     {
       name: 'Продаж',
       icon: '💰',
-      gradient: 'bg-gradient-to-br from-pink-500 via-red-500 to-orange-500',
+      gradient: 'bg-primary',
       benefits: [
         '+40% эффективность скриптов',
         'Подготовка КП быстрее в 2 раза',
@@ -37,7 +37,7 @@ export const Opportunities: React.FC<OpportunitiesProps> = ({ id }) => {
     {
       name: 'Поддержки',
       icon: '🎧',
-      gradient: 'bg-gradient-to-br from-cyan-400 via-blue-500 to-indigo-600',
+      gradient: 'bg-primary',
       benefits: [
         '-50% нагрузки на операторов за счет ИИ-помощника',
         'Мгновенная генерация типовых ответов и инструкций',
@@ -48,7 +48,7 @@ export const Opportunities: React.FC<OpportunitiesProps> = ({ id }) => {
     {
       name: 'HR',
       icon: '👥',
-      gradient: 'bg-gradient-to-br from-green-400 via-emerald-500 to-teal-600',
+      gradient: 'bg-primary',
       benefits: [
         '-80% времени на составление вакансий',
         'Автоматическая оценка резюме',
