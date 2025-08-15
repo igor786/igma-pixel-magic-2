@@ -69,13 +69,13 @@ export const Opportunities: React.FC<OpportunitiesProps> = ({ id }) => {
             <AccordionItem 
               key={index} 
               value={`item-${index}`} 
-              className="group relative overflow-hidden rounded-[24px] border-0 bg-white shadow-lg hover:shadow-xl transition-all duration-300 animate-scale-in"
+              className="group relative overflow-hidden rounded-[24px] border-0 bg-white transition-all duration-300 animate-scale-in"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <div className={`absolute inset-0 opacity-5 ${department.gradient}`}></div>
               <AccordionTrigger className="relative px-8 py-6 text-left hover:no-underline group-hover:bg-gray-50/50 transition-colors duration-200">
                 <div className="flex items-center gap-4 w-full">
-                  <div className={`flex items-center justify-center w-12 h-12 rounded-full ${department.gradient} text-white text-xl shadow-md`}>
+                  <div className={`flex items-center justify-center w-12 h-12 rounded-full ${department.gradient} text-white text-xl`}>
                     {department.icon}
                   </div>
                   <div className="flex-1">
@@ -94,7 +94,7 @@ export const Opportunities: React.FC<OpportunitiesProps> = ({ id }) => {
                         className="flex items-start gap-4 animate-fade-in"
                         style={{ animationDelay: `${benefitIndex * 50}ms` }}
                       >
-                        <div className={`w-3 h-3 rounded-full ${department.gradient} mt-1.5 flex-shrink-0 shadow-sm`}></div>
+                        <div className={`w-3 h-3 rounded-full ${department.gradient} mt-1.5 flex-shrink-0`}></div>
                         <span className="text-[#555558] text-base leading-relaxed font-medium">
                           {benefit}
                         </span>
