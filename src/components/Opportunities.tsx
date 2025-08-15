@@ -94,7 +94,7 @@ export const Opportunities: React.FC<OpportunitiesProps> = ({ id }) => {
                         className="flex items-start gap-4 animate-fade-in"
                         style={{ animationDelay: `${benefitIndex * 50}ms` }}
                       >
-                        <div className={`w-2 h-2 rounded-full ${department.gradient} mt-1.5 flex-shrink-0`}></div>
+                        <div className={`w-2 h-2 rounded-full ${department.gradient} mt-2.5 flex-shrink-0`}></div>
                         <span className="text-[#555558] text-base leading-relaxed font-medium">
                           {benefit}
                         </span>
