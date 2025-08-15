@@ -122,7 +122,7 @@ export const ContactFormNew: React.FC = () => {
               box-sizing: border-box;
               width: 642px;
               max-width: 100%;
-              background: #ffffff;
+              background: white;
             }
             .flow-img { 
               width: 100%; 
