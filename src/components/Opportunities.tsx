@@ -86,7 +86,7 @@ export const Opportunities: React.FC<OpportunitiesProps> = ({ id }) => {
                 </div>
               </AccordionTrigger>
               <AccordionContent className="relative px-8 pb-6 pt-2">
-                <div className="pl-6">
+                <div className="ml-16">
                   <ul className="space-y-4">
                     {department.benefits.map((benefit, benefitIndex) => (
                       <li 
