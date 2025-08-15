@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
-
 export const ContactFormNew: React.FC = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitted(true);
@@ -43,15 +41,12 @@ export const ContactFormNew: React.FC = () => {
       })(window, document, "leadforms_forms");
     `;
     document.head.appendChild(script);
-
     return () => {
       // Cleanup script on unmount
       document.head.removeChild(script);
     };
   }, []);
-
-  return (
-    <section id="contact-form" className="items-stretch flex w-[858px] max-w-full flex-col gap-12">
+  return <section id="contact-form" className="items-stretch flex w-[858px] max-w-full flex-col gap-12">
       <div className="w-full text-center gap-5 max-md:max-w-full">
         <div className="flex w-full flex-col text-[32px] text-[#333338] font-semibold leading-none gap-3 max-md:max-w-full">
           <h2 className="text-[#333338] max-md:max-w-full">
@@ -66,9 +61,8 @@ export const ContactFormNew: React.FC = () => {
       </div>
       
       <div className="self-center">
-        {isSubmitted ? (
-          <div className="leadforms-form animate-fade-in">
-            <div className="text-center">
+        {isSubmitted ? <div className="leadforms-form animate-fade-in">
+            <div className="text-center py-[48px] px-[48px] mx-0">
               <div className="flex items-center justify-center gap-2 mb-4">
                 <div className="text-green-600 text-lg">✓</div>
                 <h3 className="text-xl font-semibold text-[#333338]">
@@ -80,9 +74,7 @@ export const ContactFormNew: React.FC = () => {
                 Мы направим доступы на вашу почту, когда оно начнется.
               </p>
             </div>
-          </div>
-        ) : (
-          <form onSubmit={handleSubmit} className="leadforms-form">
+          </div> : <form onSubmit={handleSubmit} className="leadforms-form">
           
           
           <div className="leadforms-row">
@@ -90,13 +82,7 @@ export const ContactFormNew: React.FC = () => {
               <label className="leadforms-label form__label" htmlFor="leadforms_contact_name">
                 Ваше имя
               </label>
-              <input 
-                type="text" 
-                required 
-                id="leadforms_contact_name" 
-                name="contact_name" 
-                className="leadforms-input form__control" 
-              />
+              <input type="text" required id="leadforms_contact_name" name="contact_name" className="leadforms-input form__control" />
             </div>
           </div>
           
@@ -105,32 +91,15 @@ export const ContactFormNew: React.FC = () => {
               <label className="leadforms-label form__label" htmlFor="leadforms_contact_email">
                 Email
               </label>
-              <input 
-                type="email" 
-                required 
-                id="leadforms_contact_email" 
-                name="contact_email" 
-                className="leadforms-input form__control" 
-              />
+              <input type="email" required id="leadforms_contact_email" name="contact_email" className="leadforms-input form__control" />
             </div>
           </div>
           
           <div className="leadforms-row leadforms-checkbox-block">
             <div className="form__input--fragment form__input-group form__input-group--checkbox ">
               <div className="form-checkbox form-checkbox--color-primary" data-set-unique-id>
-                <input 
-                  type="checkbox" 
-                  id="leadforms_privacy" 
-                  required 
-                  name="leadforms_privacy" 
-                  value="ok" 
-                  className="form__control form-input-box__input form-checkbox__input leadforms-form-input-privacy" 
-                />
-                <label 
-                  className="form-input__label form__label leadforms-label" 
-                  htmlFor="leadforms_privacy" 
-                  id="leadforms_privacy_label"
-                >
+                <input type="checkbox" id="leadforms_privacy" required name="leadforms_privacy" value="ok" className="form__control form-input-box__input form-checkbox__input leadforms-form-input-privacy" />
+                <label className="form-input__label form__label leadforms-label" htmlFor="leadforms_privacy" id="leadforms_privacy_label">
                   Я согласен на обработку персональных данных
                 </label>
               </div>
@@ -254,9 +223,7 @@ export const ContactFormNew: React.FC = () => {
               Присоединиться
             </button>
           </div>
-          </form>
-        )}
+          </form>}
       </div>
-    </section>
-  );
+    </section>;
 };
