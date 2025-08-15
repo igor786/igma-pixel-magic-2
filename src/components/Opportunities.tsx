@@ -14,7 +14,7 @@ export const Opportunities: React.FC<OpportunitiesProps> = ({ id }) => {
   const departments = [
     {
       name: 'Маркетинга',
-      icon: '📊',
+      icon: '📣',
       gradient: 'bg-primary',
       benefits: [
         'Ежедневный мониторинг конкурентов и трендов',
