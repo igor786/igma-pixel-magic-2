@@ -75,7 +75,7 @@ export const Opportunities: React.FC<OpportunitiesProps> = ({ id }) => {
               <div className={`absolute inset-0 opacity-5 ${department.gradient}`}></div>
               <AccordionTrigger className="relative px-8 py-6 text-left hover:no-underline group-hover:bg-gray-50/50 transition-colors duration-200">
                 <div className="flex items-center gap-4 w-full">
-                  <div className={`flex items-center justify-center w-12 h-12 rounded-full ${department.gradient} text-white text-xl`}>
+                  <div className={`flex items-center justify-center w-12 h-12 rounded-full bg-white text-primary text-xl border border-primary/20`}>
                     {department.icon}
                   </div>
                   <div className="flex-1">
