@@ -47,7 +47,7 @@ export const Opportunities: React.FC<OpportunitiesProps> = ({ id }) => {
     },
     {
       name: 'HR',
-      icon: '👥',
+      icon: '👦',
       gradient: 'bg-primary',
       benefits: [
         '-80% времени на составление вакансий',
