@@ -36,7 +36,7 @@ export const Opportunities: React.FC<OpportunitiesProps> = ({ id }) => {
     },
     {
       name: 'Поддержки',
-      icon: '🎧',
+      icon: '🛟',
       gradient: 'bg-primary',
       benefits: [
         '-50% нагрузки на операторов за счет ИИ-помощника',
