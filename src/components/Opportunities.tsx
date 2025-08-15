@@ -64,7 +64,7 @@ export const Opportunities: React.FC<OpportunitiesProps> = ({ id }) => {
         Внедрите ИИ в ваш отдел
       </h2>
       <div className="w-full max-w-5xl mx-auto">
-        <Accordion type="single" collapsible className="w-full space-y-3">
+        <Accordion type="single" collapsible className="w-full space-y-2">
           {departments.map((department, index) => (
             <AccordionItem 
               key={index} 
