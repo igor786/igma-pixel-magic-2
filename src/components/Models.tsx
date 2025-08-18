@@ -1,4 +1,6 @@
 import React from 'react';
+import yandexgptLogo from '@/assets/yandexgpt-logo.png';
+import gigachatLogo from '@/assets/gigachat-logo.png';
 
 interface ModelsProps {
   id?: string;
@@ -29,6 +31,16 @@ export const Models: React.FC<ModelsProps> = ({ id }) => {
         <img
           src="https://api.builder.io/api/v1/image/assets/026994195ab14c0facde9a3ac9f37576/098f392017e226f6c9b551789a55eadbb8b85456?placeholderIfAbsent=true"
           alt="AI Model 4"
+          className="aspect-[3.16] object-contain w-[152px] self-stretch shrink-0 my-auto"
+        />
+        <img
+          src={yandexgptLogo}
+          alt="YandexGPT"
+          className="aspect-[3.16] object-contain w-[152px] self-stretch shrink-0 my-auto"
+        />
+        <img
+          src={gigachatLogo}
+          alt="GigaChat"
           className="aspect-[3.16] object-contain w-[152px] self-stretch shrink-0 my-auto"
         />
       </div>
