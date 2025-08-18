@@ -75,14 +75,19 @@ export const ContactFormNew: React.FC = () => {
               </p>
             </div>
           </div> : <form onSubmit={handleSubmit} className="leadforms-form">
-          
-          
+          <input type="hidden" name="pipeline_id" value=""/>          
           <div className="leadforms-row">
             <div className="form__input--fragment form__input-group form__input-group--text ">
               <label className="leadforms-label form__label" htmlFor="leadforms_contact_name">
                 Ваше имя
               </label>
-              <input type="text" required id="leadforms_contact_name" name="contact_name" className="leadforms-input form__control" />
+              <input 
+                type="text" 
+                required 
+                id="leadforms_contact_name" 
+                name="contact_name" 
+                className="leadforms-input form__control" 
+              />
             </div>
           </div>
           
@@ -91,10 +96,43 @@ export const ContactFormNew: React.FC = () => {
               <label className="leadforms-label form__label" htmlFor="leadforms_contact_email">
                 Email
               </label>
-              <input type="email" required id="leadforms_contact_email" name="contact_email" className="leadforms-input form__control" />
+              <input 
+                type="email" 
+                required 
+                id="leadforms_contact_email" 
+                name="contact_email" 
+                className="leadforms-input form__control" 
+              />
             </div>
           </div>
           
+          <div className="leadforms-row">
+            <div className="form__input--fragment form__input-group form__input-group--text ">
+              <label className="leadforms-label form__label" htmlFor="leadforms_contact_company">
+                Компания
+              </label>
+              <input 
+                type="text" 
+                id="leadforms_contact_company" 
+                name="contact_company" 
+                className="leadforms-input form__control" 
+              />
+            </div>
+          </div>
+          
+          <div className="leadforms-row">
+            <div className="form__input--fragment form__input-group form__input-group--textarea ">
+              <label className="leadforms-label form__label" htmlFor="leadforms_description">
+                Комментарий
+              </label>
+              <textarea 
+                id="leadforms_description" 
+                name="description" 
+                className="leadforms-input form__control" 
+                rows={3}
+              ></textarea>
+            </div>
+          </div>          
           <div className="leadforms-row leadforms-checkbox-block">
             <div className="form__input--fragment form__input-group form__input-group--checkbox ">
               <div className="form-checkbox form-checkbox--color-primary" data-set-unique-id>
@@ -134,6 +172,16 @@ export const ContactFormNew: React.FC = () => {
             }
             .leadforms-form input.leadforms-input { 
               height: 48px;
+              border: 1px solid #E6E9F2;
+              background: #F5F7FC;
+              border-radius: 8px;
+              padding: 11px 12px;
+              width: 100%;
+              font-size: 13px;
+              color: #333338;
+            }
+            .leadforms-form textarea.leadforms-input {
+              resize: none;
               border: 1px solid #E6E9F2;
               background: #F5F7FC;
               border-radius: 8px;
