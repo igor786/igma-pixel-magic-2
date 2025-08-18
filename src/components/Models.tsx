@@ -1,6 +1,5 @@
 import React from 'react';
 import yandexgptLogo from '@/assets/yandexgpt-logo.png';
-import gigachatLogo from '@/assets/gigachat-logo.png';
 
 interface ModelsProps {
   id?: string;
@@ -39,9 +38,9 @@ export const Models: React.FC<ModelsProps> = ({ id }) => {
           className="aspect-[3.16] object-contain w-[152px] self-stretch shrink-0 my-auto"
         />
         <img
-          src={gigachatLogo}
+          src="/lovable-uploads/cb14f0d2-e9ff-41e3-b77f-7265b2ed6d78.png"
           alt="GigaChat"
-          className="aspect-[3.16] object-contain w-[152px] self-stretch shrink-0 my-auto"
+          className="aspect-[3.16] object-contain w-[152px] self-stretch shrink-0 my-auto brightness-0"
         />
       </div>
     </section>
