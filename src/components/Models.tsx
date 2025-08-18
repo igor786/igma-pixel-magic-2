@@ -34,7 +34,7 @@ export const Models: React.FC<ModelsProps> = ({ id }) => {
         <img
           src="/lovable-uploads/c43c31eb-1626-4c95-bad5-85d9e86ce85e.png"
           alt="YandexGPT"
-          className="aspect-[3.16] object-contain w-[152px] justify-self-center brightness-0"
+          className="aspect-[3.16] object-contain w-[180px] justify-self-center brightness-0"
         />
         <img
           src="/lovable-uploads/cb14f0d2-e9ff-41e3-b77f-7265b2ed6d78.png"
