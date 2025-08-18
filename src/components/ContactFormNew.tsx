@@ -75,7 +75,7 @@ export const ContactFormNew: React.FC = () => {
               </p>
             </div>
           </div> : <form onSubmit={handleSubmit} className="leadforms-form">
-          <input type="hidden" name="pipeline_id" value=""/>          
+          <input type="hidden" name="pipeline_id" value="27"/>          
           <div className="leadforms-row">
             <div className="form__input--fragment form__input-group form__input-group--text ">
               <label className="leadforms-label form__label" htmlFor="leadforms_contact_name">
