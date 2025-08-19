@@ -73,6 +73,7 @@ export const ContactFormNew: React.FC = () => {
         <form className="leadforms-form">
           <input type="hidden" name="pipeline_id" value="27"/>
           <input type="hidden" id="leadforms_host" value="https://bi.aspro.ru/"/>
+          <input type="hidden" name="name" value="Веб-форма "/>
           <div className="leadforms-row">
             <div className="form__input--fragment form__input-group form__input-group--text ">
               <label className="leadforms-label form__label" htmlFor="leadforms_contact_name">
