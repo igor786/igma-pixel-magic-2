@@ -10,6 +10,7 @@ declare global {
 
 export const ContactFormNew: React.FC = () => {
   const formRef = useRef<HTMLFormElement>(null);
+  const checkboxRef = useRef<HTMLInputElement>(null);
   
   useEffect(() => {
     // Initialize leadforms_forms array if it doesn't exist
@@ -54,11 +55,28 @@ export const ContactFormNew: React.FC = () => {
     };
 
     document.head.appendChild(script);
+    // --- Логика для очистки чекбокса ---
+    const formElement = formRef.current;
+    
+    // Функция, которая будет вызвана при успешной отправке
+    const handleSuccessfullSend = () => {
+      if (checkboxRef.current) {
+        checkboxRef.current.checked = false;
+      }
+    };
+
+    // Подписываемся на кастомное событие от внешнего скрипта
+    if (formElement) {
+      formElement.addEventListener('wf.ac.sent', handleSuccessfullSend);
+    }
 
     return () => {
       // Cleanup script
       if (script && script.parentNode) {
         script.parentNode.removeChild(script);
+      }
+      if (formElement) {
+        formElement.removeEventListener('wf.ac.sent', handleSuccessfullSend);
       }
     };
   }, []);
@@ -74,6 +92,7 @@ export const ContactFormNew: React.FC = () => {
       // Предотвращаем дальнейшее всплытие события и действия по умолчанию.
       // Это не даст внешнему скрипту отправить невалидную форму.
       event.preventDefault();
+      event.stopPropagation(); 
     }
     // Если форма валидна, reportValidity() вернет true, и этот блок не выполнится.
     // Событие продолжит свой путь, и внешний скрипт FlowluForm его обработает и отправит данные.
@@ -158,7 +177,7 @@ export const ContactFormNew: React.FC = () => {
           <div className="leadforms-row leadforms-checkbox-block">
             <div className="form__input--fragment form__input-group form__input-group--checkbox ">
               <div className="form-checkbox form-checkbox--color-primary" data-set-unique-id="">
-                <input type="checkbox" id="leadforms_privacy" required name="leadforms_privacy" value="ok" className="form__control form-input-box__input form-checkbox__input leadforms-form-input-privacy" />
+                <input ref={checkboxRef} type="checkbox" id="leadforms_privacy" required name="leadforms_privacy" value="ok" className="form__control form-input-box__input form-checkbox__input leadforms-form-input-privacy" />
                 <label className="form-input__label form__label leadforms-label" htmlFor="leadforms_privacy" id="leadforms_privacy_label">
                   Я согласен на обработку персональных данных
                 </label>
