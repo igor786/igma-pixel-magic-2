@@ -36,6 +36,13 @@ export const ContactFormNew: React.FC = () => {
     
     script.onload = function() {
       console.log('FlowluForm script loaded successfully');
+      
+      // Remove existing leadformscss link if it exists
+      const existingLink = document.getElementById('leadformscss');
+      if (existingLink) {
+        existingLink.remove();
+      }
+      
       if (typeof window.addStyleToPage === 'function') {
         (window as any).addStyleToPage();
       }
