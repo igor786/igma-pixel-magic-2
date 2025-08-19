@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 declare global {
   interface Window {
@@ -9,30 +9,13 @@ declare global {
 }
 
 export const ContactFormNew: React.FC = () => {
+  const formRef = useRef<HTMLFormElement>(null);
+  
   useEffect(() => {
     // Initialize leadforms_forms array if it doesn't exist
     if (!window.leadforms_forms) {
       window.leadforms_forms = [];
     }
-
-    // Ensure native form validation works
-    const handleFormSubmit = (e: Event) => {
-      const form = e.target as HTMLFormElement;
-      if (!form.checkValidity()) {
-        e.preventDefault();
-        e.stopImmediatePropagation();
-        form.reportValidity();
-        return false;
-      }
-    };
-
-    // Add form validation handler with high priority
-    setTimeout(() => {
-      const form = document.querySelector('.leadforms-form');
-      if (form) {
-        form.addEventListener('submit', handleFormSubmit, true);
-      }
-    }, 100);
 
     // Add the form initialization function to the queue
     window.leadforms_forms.push(function(leadformsHost: string) {
@@ -73,18 +56,28 @@ export const ContactFormNew: React.FC = () => {
     document.head.appendChild(script);
 
     return () => {
-      // Cleanup form validation handler
-      const form = document.querySelector('.leadforms-form');
-      if (form) {
-        form.removeEventListener('submit', handleFormSubmit, true);
-      }
-      
       // Cleanup script
       if (script && script.parentNode) {
         script.parentNode.removeChild(script);
       }
     };
   }, []);
+
+  const handleFormSubmit = (event: React.MouseEvent<HTMLButtonElement>) => {
+    const form = formRef.current;
+
+    // Проверяем валидность формы. 
+    // form.reportValidity() не только проверяет, но и показывает пользователю 
+    // нативные подсказки браузера, если поля не заполнены.
+    // Если форма НЕ валидна, метод вернет false.
+    if (form && !form.reportValidity()) {
+      // Предотвращаем дальнейшее всплытие события и действия по умолчанию.
+      // Это не даст внешнему скрипту отправить невалидную форму.
+      event.preventDefault();
+    }
+    // Если форма валидна, reportValidity() вернет true, и этот блок не выполнится.
+    // Событие продолжит свой путь, и внешний скрипт FlowluForm его обработает и отправит данные.
+  };
   return (
     <section id="contact-form" className="items-stretch flex w-[858px] max-w-full flex-col gap-12">
       <div className="w-full text-center gap-5 max-md:max-w-full">
@@ -101,7 +94,7 @@ export const ContactFormNew: React.FC = () => {
       </div>
       
       <div className="self-center">
-        <form className="leadforms-form" noValidate={false}>
+        <form className="leadforms-form" ref={formRef}>
           <input type="hidden" name="pipeline_id" value="27"/>
           <input type="hidden" id="leadforms_host" value="https://bi.aspro.ru/"/>
           <input type="hidden" name="name" value="Веб-форма "/>
@@ -296,7 +289,7 @@ export const ContactFormNew: React.FC = () => {
           `}</style>
           
           <div className="leadforms-row leadforms-row-submit">
-            <button type="submit" className="leadforms-submit leadforms-btn leadforms-btn-primary">
+            <button type="submit" className="leadforms-submit leadforms-btn leadforms-btn-primary" onClick={handleFormSubmit}>
               Присоединиться
             </button>
           </div>
