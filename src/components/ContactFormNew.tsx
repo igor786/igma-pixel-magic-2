@@ -11,14 +11,12 @@ declare global {
 export const ContactFormNew: React.FC = () => {
   const formRef = useRef<HTMLFormElement>(null);
   const checkboxRef = useRef<HTMLInputElement>(null);
-  
+
   useEffect(() => {
-    // Initialize leadforms_forms array if it doesn't exist
+    // --- 1. Логика загрузки внешнего скрипта (остается почти без изменений) ---
     if (!window.leadforms_forms) {
       window.leadforms_forms = [];
     }
-
-    // Add the form initialization function to the queue
     window.leadforms_forms.push(function(leadformsHost: string) {
       try {
         new window.FlowluForm.init({
@@ -31,72 +29,89 @@ export const ContactFormNew: React.FC = () => {
       }
     });
 
-    // Load the external script
     const script = document.createElement('script');
     script.type = 'text/javascript';
     script.async = true;
     script.src = `https://bi.aspro.ru/application/classes/Module/Webforms/static/js/ext-form.js?v=${Date.now()}`;
     
-    script.onload = function() {
+    script.onload = () => {
       console.log('FlowluForm script loaded successfully');
-      
       if (typeof window.addStyleToPage === 'function') {
         (window as any).addStyleToPage();
-        // Remove existing leadformscss link if it exists
         const existingLink = document.getElementById('leadformscss');
-        if (existingLink) {
-          existingLink.remove();
-        }
+        if (existingLink) existingLink.remove();
       }
     };
-
-    script.onerror = function() {
-      console.error('Failed to load FlowluForm script');
-    };
-
-    document.head.appendChild(script);
-    // --- Логика для очистки чекбокса ---
-    const formElement = formRef.current;
+    script.onerror = () => console.error('Failed to load FlowluForm script');
     
-    // Функция, которая будет вызвана при успешной отправке
-    const handleSuccessfullSend = () => {
+    document.head.appendChild(script);
+
+    // --- 2. Улучшенная логика для валидации и очистки ---
+
+    const formElement = formRef.current;
+    if (!formElement) return;
+
+    // Функция для очистки чекбокса
+    const handleSuccessfulSend = () => {
       if (checkboxRef.current) {
         checkboxRef.current.checked = false;
       }
     };
 
-    // Подписываемся на кастомное событие от внешнего скрипта
-    if (formElement) {
-      formElement.addEventListener('wf.ac.sent', handleSuccessfullSend);
-    }
+    // Функция, которая "улучшает" форму после инициализации внешнего скрипта
+    const enhanceForm = () => {
+      console.log('Form is initialized by external script. Enhancing...');
+      
+      // Навешиваем слушатель для очистки чекбокса
+      formElement.addEventListener('wf.ac.sent', handleSuccessfulSend);
+      
+      const submitButton = formElement.querySelector<HTMLButtonElement>('.leadforms-submit');
+      if (!submitButton) return;
+
+      const newButton = submitButton.cloneNode(true) as HTMLButtonElement;
+      submitButton.parentNode?.replaceChild(newButton, submitButton);
+
+      newButton.addEventListener('click', (event) => {
+        if (!formElement.reportValidity()) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        if (formElement.checkValidity() && window.FlowluForm) {
+            event.preventDefault(); 
+            
+            // Вручную вызываем логику отправки из скрипта
+            const host = (document.getElementById('leadforms_host') as HTMLInputElement)?.value || 'https://bi.aspro.ru/';
+            window.FlowluForm.init({
+                id: '78231',
+                token: '592e7989112f8c87fc66036f187ff628',
+                host: host
+            });
+        }
+      });
+    };
+    
+    const observer = new MutationObserver((mutationsList, obs) => {
+      for (const mutation of mutationsList) {
+        if (mutation.type === 'attributes' && mutation.attributeName === 'is_init') {
+          if (formElement.getAttribute('is_init') === 'true') {
+            enhanceForm();
+            obs.disconnect(); // Отключаем наблюдатель, так как он больше не нужен
+            return;
+          }
+        }
+      }
+    });
+
+    observer.observe(formElement, { attributes: true });
 
     return () => {
-      // Cleanup script
-      if (script && script.parentNode) {
-        script.parentNode.removeChild(script);
-      }
-      if (formElement) {
-        formElement.removeEventListener('wf.ac.sent', handleSuccessfullSend);
-      }
+      // Очистка при размонтировании
+      if (script.parentNode) script.parentNode.removeChild(script);
+      formElement.removeEventListener('wf.ac.sent', handleSuccessfulSend);
+      observer.disconnect();
     };
   }, []);
-
-  const handleFormSubmit = (event: React.MouseEvent<HTMLButtonElement>) => {
-    const form = formRef.current;
-
-    // Проверяем валидность формы. 
-    // form.reportValidity() не только проверяет, но и показывает пользователю 
-    // нативные подсказки браузера, если поля не заполнены.
-    // Если форма НЕ валидна, метод вернет false.
-    if (form && !form.reportValidity()) {
-      // Предотвращаем дальнейшее всплытие события и действия по умолчанию.
-      // Это не даст внешнему скрипту отправить невалидную форму.
-      event.preventDefault();
-      event.stopPropagation(); 
-    }
-    // Если форма валидна, reportValidity() вернет true, и этот блок не выполнится.
-    // Событие продолжит свой путь, и внешний скрипт FlowluForm его обработает и отправит данные.
-  };
+  
   return (
     <section id="contact-form" className="items-stretch flex w-[858px] max-w-full flex-col gap-12">
       <div className="w-full text-center gap-5 max-md:max-w-full">
@@ -308,7 +323,7 @@ export const ContactFormNew: React.FC = () => {
           `}</style>
           
           <div className="leadforms-row leadforms-row-submit">
-            <button type="submit" className="leadforms-submit leadforms-btn leadforms-btn-primary" onClick={handleFormSubmit}>
+            <button type="submit" className="leadforms-submit leadforms-btn leadforms-btn-primary">
               Присоединиться
             </button>
           </div>
