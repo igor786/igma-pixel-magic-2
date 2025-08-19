@@ -15,6 +15,25 @@ export const ContactFormNew: React.FC = () => {
       window.leadforms_forms = [];
     }
 
+    // Ensure native form validation works
+    const handleFormSubmit = (e: Event) => {
+      const form = e.target as HTMLFormElement;
+      if (!form.checkValidity()) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        form.reportValidity();
+        return false;
+      }
+    };
+
+    // Add form validation handler with high priority
+    setTimeout(() => {
+      const form = document.querySelector('.leadforms-form');
+      if (form) {
+        form.addEventListener('submit', handleFormSubmit, true);
+      }
+    }, 100);
+
     // Add the form initialization function to the queue
     window.leadforms_forms.push(function(leadformsHost: string) {
       try {
@@ -54,7 +73,13 @@ export const ContactFormNew: React.FC = () => {
     document.head.appendChild(script);
 
     return () => {
-      // Cleanup
+      // Cleanup form validation handler
+      const form = document.querySelector('.leadforms-form');
+      if (form) {
+        form.removeEventListener('submit', handleFormSubmit, true);
+      }
+      
+      // Cleanup script
       if (script && script.parentNode) {
         script.parentNode.removeChild(script);
       }
@@ -76,7 +101,7 @@ export const ContactFormNew: React.FC = () => {
       </div>
       
       <div className="self-center">
-        <form className="leadforms-form">
+        <form className="leadforms-form" noValidate={false}>
           <input type="hidden" name="pipeline_id" value="27"/>
           <input type="hidden" id="leadforms_host" value="https://bi.aspro.ru/"/>
           <input type="hidden" name="name" value="Веб-форма "/>
