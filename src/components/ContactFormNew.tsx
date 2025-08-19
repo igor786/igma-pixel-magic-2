@@ -1,52 +1,61 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+
+declare global {
+  interface Window {
+    FlowluForm: any;
+    leadforms_forms: any[];
+    addStyleToPage?: () => void;
+  }
+}
+
 export const ContactFormNew: React.FC = () => {
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitted(true);
-  };
   useEffect(() => {
-    // Create and append the script element
+    // Initialize leadforms_forms array if it doesn't exist
+    if (!window.leadforms_forms) {
+      window.leadforms_forms = [];
+    }
+
+    // Add the form initialization function to the queue
+    window.leadforms_forms.push(function(leadformsHost: string) {
+      try {
+        new window.FlowluForm.init({
+          id: '78231',
+          token: '592e7989112f8c87fc66036f187ff628',
+          host: leadformsHost
+        });
+      } catch (e) {
+        console.error('FlowluForm initialization error:', e);
+      }
+    });
+
+    // Load the external script
     const script = document.createElement('script');
     script.type = 'text/javascript';
-    script.innerHTML = `
-      (function(w, d, c) { 
-        (w[c] = w[c] || []).push(function(leadformsHost) { 
-          try { 
-            new FlowluForm.init({ 
-              id: '78231', 
-              token: '592e7989112f8c87fc66036f187ff628', 
-              host: leadformsHost 
-            }); 
-          } catch (e) {} 
-        }); 
-        var n = d.getElementsByTagName("script")[0], 
-            s = d.createElement("script"), 
-            f = function() { 
-              n.parentNode.insertBefore(s, n); 
-              s.onload = function() { 
-                if (typeof addStyleToPage === 'function') {
-                  addStyleToPage(); 
-                }
-              }; 
-            }; 
-        s.type = "text/javascript"; 
-        s.async = true; 
-        s.src = "https://bi.aspro.ru/application/classes/Module/Webforms/static/js/ext-form.js?v=" + Date.now(); 
-        if (w.opera == "[object Opera]") { 
-          d.addEventListener("DOMContentLoaded", f, false); 
-        } else { 
-          d.addEventListener("DOMContentLoaded", f, false); 
-        } 
-      })(window, document, "leadforms_forms");
-    `;
+    script.async = true;
+    script.src = `https://bi.aspro.ru/application/classes/Module/Webforms/static/js/ext-form.js?v=${Date.now()}`;
+    
+    script.onload = function() {
+      console.log('FlowluForm script loaded successfully');
+      if (typeof window.addStyleToPage === 'function') {
+        (window as any).addStyleToPage();
+      }
+    };
+
+    script.onerror = function() {
+      console.error('Failed to load FlowluForm script');
+    };
+
     document.head.appendChild(script);
+
     return () => {
-      // Cleanup script on unmount
-      document.head.removeChild(script);
+      // Cleanup
+      if (script && script.parentNode) {
+        script.parentNode.removeChild(script);
+      }
     };
   }, []);
-  return <section id="contact-form" className="items-stretch flex w-[858px] max-w-full flex-col gap-12">
+  return (
+    <section id="contact-form" className="items-stretch flex w-[858px] max-w-full flex-col gap-12">
       <div className="w-full text-center gap-5 max-md:max-w-full">
         <div className="flex w-full flex-col text-[32px] text-[#333338] font-semibold leading-none gap-3 max-md:max-w-full">
           <h2 className="text-[#333338] max-md:max-w-full">
@@ -61,20 +70,7 @@ export const ContactFormNew: React.FC = () => {
       </div>
       
       <div className="self-center">
-        {isSubmitted ? <div className="leadforms-form animate-fade-in">
-            <div className="text-center py-[48px] px-[48px] mx-0">
-              <div className="flex items-center justify-center gap-2 mb-4">
-                <div className="text-green-600 text-lg">✓</div>
-                <h3 className="text-xl font-semibold text-[#333338]">
-                  Благодарим за участие!
-                </h3>
-              </div>
-              <p className="text-[#555558] leading-relaxed">
-                Спасибо, что присоединились к закрытому тестированию Аспро.ИИ. 
-                Мы направим доступы на вашу почту, когда оно начнется.
-              </p>
-            </div>
-          </div> : <form onSubmit={handleSubmit} className="leadforms-form">
+        <form className="leadforms-form">
           <input type="hidden" name="pipeline_id" value="27"/>          
           <div className="leadforms-row">
             <div className="form__input--fragment form__input-group form__input-group--text ">
@@ -135,7 +131,7 @@ export const ContactFormNew: React.FC = () => {
           </div>          
           <div className="leadforms-row leadforms-checkbox-block">
             <div className="form__input--fragment form__input-group form__input-group--checkbox ">
-              <div className="form-checkbox form-checkbox--color-primary" data-set-unique-id>
+              <div className="form-checkbox form-checkbox--color-primary" data-set-unique-id="">
                 <input type="checkbox" id="leadforms_privacy" required name="leadforms_privacy" value="ok" className="form__control form-input-box__input form-checkbox__input leadforms-form-input-privacy" />
                 <label className="form-input__label form__label leadforms-label" htmlFor="leadforms_privacy" id="leadforms_privacy_label">
                   Я согласен на обработку персональных данных
@@ -271,7 +267,8 @@ export const ContactFormNew: React.FC = () => {
               Присоединиться
             </button>
           </div>
-          </form>}
+        </form>
       </div>
-    </section>;
+    </section>
+  );
 };
