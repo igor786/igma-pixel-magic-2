@@ -25,7 +25,7 @@ export const ContactFormNew: React.FC = () => {
           host: leadformsHost
         });
       } catch (e) {
-        console.error('initialization error:', e);
+        console.error('FlowluForm initialization error:', e);
       }
     });
 
@@ -35,13 +35,14 @@ export const ContactFormNew: React.FC = () => {
     script.src = `https://bi.aspro.ru/application/classes/Module/Webforms/static/js/ext-form.js?v=${Date.now()}`;
     
     script.onload = () => {
+      console.log('FlowluForm script loaded successfully');
       if (typeof window.addStyleToPage === 'function') {
         (window as any).addStyleToPage();
         const existingLink = document.getElementById('leadformscss');
         if (existingLink) existingLink.remove();
       }
     };
-    script.onerror = () => console.error('Failed to load script');
+    script.onerror = () => console.error('Failed to load FlowluForm script');
     
     document.head.appendChild(script);
 
